@@ -53,6 +53,12 @@ cd app/aws-sam-hello-world-app
 make build
 ```
 
+or
+
+```
+sam build -t app/aws-sam-hello-world-app/template.yaml
+```
+
 #### Test the application locally
 
 > To use the AWS SAM CLI for local testing, you must have Docker installed and configured.
