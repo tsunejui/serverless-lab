@@ -52,13 +52,13 @@ resource "aws_iam_role" "iam_for_lambda" {
 }
 
 resource "aws_lambda_function" "lambda" {
-  function_name = "hello_lambda"
+  function_name = local.function_name
 
   filename         = data.archive_file.zip.output_path
   source_code_hash = data.archive_file.zip.output_base64sha256
 
   role    = aws_iam_role.iam_for_lambda.arn
-  handler = "hello_lambda.lambda_handler"
+  handler = local.function_name
   runtime = "go1.x"
 
   environment {
